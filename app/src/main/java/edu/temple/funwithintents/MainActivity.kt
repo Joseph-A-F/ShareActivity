@@ -17,15 +17,10 @@ class MainActivity : AppCompatActivity() {
         // When the user clicks this button, share the text if not empty
         findViewById<ImageButton>(R.id.shareImageButton).setOnClickListener {
             if (editText.text.isBlank()) return@setOnClickListener
-            var sendIntent = Intent().apply {
-                action = Intent.ACTION_SEND
+            startActivity(Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
-                putExtra(Intent.EXTRA_TEXT,editText.text)
-            }
-//            startActivity(sendIntent)
-            if (sendIntent.resolveActivity(packageManager) != null){
-                startActivity(sendIntent)
-            }
+                putExtra(Intent.EXTRA_TEXT,editText.text.toString())
+            })
 
         }
 
