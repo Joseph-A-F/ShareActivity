@@ -22,9 +22,11 @@ class MainActivity : AppCompatActivity() {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT,editText.text)
             }
+//            startActivity(sendIntent)
             if (sendIntent.resolveActivity(packageManager) != null){
                 startActivity(sendIntent)
             }
+
         }
 
     }
